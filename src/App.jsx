@@ -1,25 +1,9 @@
 import React from 'react';
 import RestaurantList from './components/RestaurantList';
-import { getRestaurants } from './data/network';
+import useRestaurants from './hooks/useRestaurants';
 
 function App() {
-  const [restaurants, setRestaurants] = React.useState(() => []);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
-
-  React.useEffect(() => {
-    async function fetchRestaurants() {
-      try {
-        const res = await getRestaurants();
-        setRestaurants(res);
-        setLoading(false);
-      } catch {
-        setError(true);
-      }
-    }
-
-    fetchRestaurants();
-  }, []);
+  const { restaurants, loading, error } = useRestaurants();
 
   if (loading) {
     return (
