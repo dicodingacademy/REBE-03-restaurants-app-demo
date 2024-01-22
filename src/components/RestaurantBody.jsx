@@ -1,3 +1,5 @@
+import React from 'react';
+
 function RestaurantBody({ name, description, city }) {
   return (
     <section className="restaurant-body">

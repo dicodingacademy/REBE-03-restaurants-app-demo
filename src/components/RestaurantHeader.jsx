@@ -1,3 +1,5 @@
+import React from 'react';
+
 function RestaurantHeader({ name, pictureUrl, rating }) {
   return (
     <header className="restaurant-header">

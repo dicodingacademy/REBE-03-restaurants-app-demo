@@ -1,3 +1,4 @@
+import React from 'react';
 import RestaurantHeader from './RestaurantHeader';
 import RestaurantBody from './RestaurantBody';
 
