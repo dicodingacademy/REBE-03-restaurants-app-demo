@@ -1,6 +1,6 @@
 import React from 'react';
-import { getRestaurants } from './data/local.js';
-import RestaurantList from './components/RestaurantList.jsx';
+import { getRestaurants } from './data/local';
+import RestaurantList from './components/RestaurantList';
 
 function App() {
   const restaurants = getRestaurants();

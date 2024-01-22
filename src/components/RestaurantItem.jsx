@@ -1,5 +1,5 @@
-import RestaurantHeader from './RestaurantHeader.jsx';
-import RestaurantBody from './RestaurantBody.jsx';
+import RestaurantHeader from './RestaurantHeader';
+import RestaurantBody from './RestaurantBody';
 
 function RestaurantItem({
   name, description, pictureUrl, city, rating,
