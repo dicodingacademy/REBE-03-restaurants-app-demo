@@ -1,5 +1,6 @@
 import React from 'react';
-import RestaurantItem from './RestaurantItem';
+import PropTypes from 'prop-types';
+import RestaurantItem, { RestaurantProps } from './RestaurantItem';
 
 function RestaurantList({ restaurants }) {
   return (
@@ -20,5 +21,11 @@ function RestaurantList({ restaurants }) {
     </section>
   );
 }
+
+RestaurantList.propTypes = {
+  restaurants: PropTypes.arrayOf(
+    PropTypes.shape(RestaurantProps),
+  ).isRequired,
+};
 
 export default RestaurantList;

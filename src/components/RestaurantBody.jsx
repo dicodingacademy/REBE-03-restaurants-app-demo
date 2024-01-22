@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RestaurantBody({ name, description, city }) {
   return (
@@ -9,5 +10,11 @@ function RestaurantBody({ name, description, city }) {
     </section>
   );
 }
+
+RestaurantBody.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+};
 
 export default RestaurantBody;

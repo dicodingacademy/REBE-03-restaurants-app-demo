@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RestaurantHeader from './RestaurantHeader';
 import RestaurantBody from './RestaurantBody';
 
@@ -12,5 +13,15 @@ function RestaurantItem({
     </article>
   );
 }
+
+export const RestaurantProps = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  pictureUrl: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+};
+
+RestaurantItem.propTypes = RestaurantProps;
 
 export default RestaurantItem;

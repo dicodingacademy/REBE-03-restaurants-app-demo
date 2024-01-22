@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RestaurantHeader({ name, pictureUrl, rating }) {
   return (
@@ -8,5 +9,11 @@ function RestaurantHeader({ name, pictureUrl, rating }) {
     </header>
   );
 }
+
+RestaurantHeader.propTypes = {
+  name: PropTypes.string.isRequired,
+  pictureUrl: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+};
 
 export default RestaurantHeader;
