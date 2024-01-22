@@ -2,45 +2,40 @@ import React from 'react';
 import RestaurantList from './components/RestaurantList';
 import { getRestaurants } from './data/network';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function App() {
+  const [restaurants, setRestaurants] = React.useState(() => []);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
 
-    this.state = {
-      restaurants: [],
-      loading: true,
-      error: false,
-    };
-  }
-
-  async componentDidMount() {
-    try {
-      const restaurants = await getRestaurants();
-      this.setState({ restaurants, loading: false });
-    } catch (error) {
-      this.setState({ loading: false, error: true });
-    }
-  }
-
-  render() {
-    const { restaurants, loading, error } = this.state;
-
-    if (loading) {
-      return (
-        <p>Loading ...</p>
-      );
+  React.useEffect(() => {
+    async function fetchRestaurants() {
+      try {
+        const res = await getRestaurants();
+        setRestaurants(res);
+        setLoading(false);
+      } catch {
+        setError(true);
+      }
     }
 
-    if (error) {
-      return (
-        <p>error showing restaurant</p>
-      );
-    }
+    fetchRestaurants();
+  }, []);
 
+  if (loading) {
     return (
-      <RestaurantList restaurants={restaurants} />
+      <p>Loading ...</p>
     );
   }
+
+  if (error) {
+    return (
+      <p>error showing restaurant</p>
+    );
+  }
+
+  return (
+    <RestaurantList restaurants={restaurants} />
+  );
 }
 
 export default App;
